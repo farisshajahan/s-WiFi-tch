@@ -20,8 +20,8 @@ def wifi_creds_update(request):
     if request.http_method == "POST":
         body = request.body
         print("Body: " + body)
-        ssid = body.split("&")[0].split("=", 1)[1].strip()
-        password = body.split("&")[1].split("=", 1)[1].strip()
+        ssid = body.split("&")[0].split("=", 1)[1].strip().replace("+", " ")
+        password = body.split("&")[1].split("=", 1)[1].strip().replace("+", " ")
         wifi_creds_file = open("wifi.cfg", "w")
         wifi_creds_file.write("ssid=" + ssid + "\npassword=" + password)
         wifi_creds_file.close()

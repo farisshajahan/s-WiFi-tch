@@ -23,6 +23,8 @@ def wifi_connect_or_ap(ssid, password):
         print('Connection successful')
         print(ap.ifconfig())
         print("Received IP: " + station.ifconfig()[0])
+    else:
+        print("Received IP: " + station.ifconfig()[0])
 
 def get_full_request(conn):
     request = conn.recv(1024).decode()
